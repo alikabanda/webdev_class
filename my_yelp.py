@@ -4,7 +4,7 @@
 import requests
 
 
-def search_business():
+def search_business(search_term, search_location):
     api_key = "e6mtc6SVQPPS68uiYK6KNaYm4Mit_SChSxouObNX7QHmh-eZi3Y2NGE_1D3kPOC7PZwKslLfTeMpQpsF0dNftkSxDJLiaZOToOlMheJS7p5ljt161KBEdO0tC2t_W3Yx"
     url = "https://api.yelp.com/v3/businesses/search"
     my_headers = {
@@ -12,8 +12,8 @@ def search_business():
     }
 
     my_params = {
-        "term": "restaurants",
-        "location": "chicago",
+        "term": search_term,
+        "location": search_location,
         "limit": 3,
     }
 
@@ -21,5 +21,9 @@ def search_business():
     businesses_dict = businesses_object.text
     print(businesses_dict)
 
+
+search_location = "chicago"
+search_term = "restaurants"
+
 # Calling search_business function
-search_business()
+search_business(search_term, search_location)
